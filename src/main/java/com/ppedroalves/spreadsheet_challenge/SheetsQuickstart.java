@@ -1,5 +1,12 @@
 package com.ppedroalves.spreadsheet_challenge;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.security.GeneralSecurityException;
+import java.util.Arrays;
+import java.util.List;
+
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -11,13 +18,6 @@ import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.services.sheets.v4.SheetsScopes;
 import com.google.api.services.sheets.v4.model.ValueRange;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.security.GeneralSecurityException;
-import java.util.Arrays;
-import java.util.List;
 
 public class SheetsQuickstart {
     private static final String APPLICATION_NAME = "Engenharia de Dados";
@@ -86,7 +86,7 @@ public class SheetsQuickstart {
 
     private static ValueRange processStudentData(List<List<Object>> values){
         for(List<Object> row : values){
-            System.out.println("Processando dados do aluno: " + row.get(1));
+            System.out.println("Processing data of: " + row.get(1));
             double averageNote = 0.0;
             if(!isFailedByAttendance (Integer.parseInt(row.get(2).toString()))){
                 Double p1 = Double.parseDouble(row.get(3).toString());
